@@ -47,6 +47,10 @@ void PersonList::addPerson(const char* child_name, const char* father_name, cons
     insertIntoList(newChild);
     father->addChild(newChild);
     mother->addChild(newChild);
+
+	delete father;
+	delete mother;
+	delete newChild;
 }
 
 void PersonList::insertIntoList(Person *newPerson){
