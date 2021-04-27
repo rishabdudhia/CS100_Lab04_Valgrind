@@ -8,9 +8,7 @@ using std::endl;
 PersonList::PersonList(){
     capacity = 2;
     numPeople = 0;
-    Person** temp = new Person*[capacity];
-    theList = temp;
-    delete[] temp;
+    theList = new Person*[capacity];
 }
 
 PersonList::~PersonList(){
@@ -56,7 +54,8 @@ void PersonList::addPerson(const char* child_name, const char* father_name, cons
 void PersonList::insertIntoList(Person *newPerson){
     if(numPeople == capacity) expand(&theList, &capacity);
 
-    theList[numPeople++] = newPerson;
+    theList[numPeople] = newPerson;
+    numPeople++;
 }
 
 void PersonList::printLineage(const char* person){

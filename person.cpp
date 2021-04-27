@@ -84,8 +84,9 @@ char* Person::compute_relation(int level){
 void expand(Person ***t, int *MAX){
   Person **temp = new Person*[2 * *MAX];
   memcpy(temp, *t, *MAX * sizeof(**t));
-  *MAX *= 2;
+  *MAX = *MAX * 2;
 
   delete[] *t;
   *t = temp;
+  
 }
