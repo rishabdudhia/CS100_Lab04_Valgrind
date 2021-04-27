@@ -8,7 +8,9 @@ using std::endl;
 PersonList::PersonList(){
     capacity = 2;
     numPeople = 0;
-    theList = new Person*[capacity];
+    Person** temp = new Person*[capacity];
+    theList = temp;
+    delete[] temp;
 }
 
 PersonList::~PersonList(){
